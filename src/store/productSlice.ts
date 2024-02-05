@@ -40,10 +40,18 @@ export const productSlice = createSlice({
         state.favourites.push({...action.payload, liked: true});
       }
     },
-    removeFromFavourite: (state, action: PayloadAction<any>) => {
-      state.favourites = state.favourites.filter(
-        item => item.id !== action.payload,
+    removeFromFavourite: (state: any, action: PayloadAction<any>) => {
+      const {data, favourites} = state;
+      const index = data?.products.findIndex(
+        (item: ProductItem) => item.id === action.payload.id,
       );
+
+      if (index !== -1) {
+        state.data.products[index].liked = false;
+        state.favourites = favourites.filter(
+          (item: ProductItem) => item.id !== action.payload.id,
+        );
+      }
     },
     addToCart: (state: any, action: PayloadAction<any>) => {
       const existingItemIndex = state.cartData.findIndex(

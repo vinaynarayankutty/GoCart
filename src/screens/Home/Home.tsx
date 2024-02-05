@@ -1,18 +1,25 @@
 import {View, Text, Pressable, TextInput, FlatList, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useNavigation} from '@react-navigation/native';
 
-import styles from './Styles';
-import {Add, Bag, HeartBlack, HeartRed, Search} from '@assets/icons/svgs';
-import {colors} from '@theme/colors';
 import DeliveryDetails from '@components/DeliveryDetails';
 import OfferCarousel from '@components/OfferCarousel';
-import {addToCart, addToFavourite, fetchProducts} from '@store/productSlice';
+import {
+  addToCart,
+  addToFavourite,
+  fetchProducts,
+  removeFromFavourite,
+} from '@store/productSlice';
 import {useAppDispatch, useAppSelector} from '@store/hooks';
+import {Add, Bag, HeartBlack, HeartRed, Search} from '@assets/icons/svgs';
 import {ProductItem} from '@constants/types';
+import {colors} from '@theme/colors';
+import styles from './Styles';
 
 const Home = () => {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<any>();
   const productStatus = useAppSelector(state => state.products.status);
   const productList: any = useAppSelector(state => state.products.data);
   const bagCount = useAppSelector(state => state.products.bagCount);
@@ -28,8 +35,8 @@ const Home = () => {
       <Text style={styles.welcomeText}>Hey, Vinay</Text>
       <Pressable
         style={styles.cartBtn}
-        onPress={() => console.warn('Go to cart')}>
-        <Bag width={25} height={25} />
+        onPress={() => navigation.navigate('Cart')}>
+        <Bag width={25} height={25} color={colors.White} />
       </Pressable>
 
       <View style={styles.bagCountContainer}>
@@ -68,11 +75,19 @@ const Home = () => {
   };
 
   const renderListItem = ({item}: {item: ProductItem}) => (
-    <View style={styles.listContainer}>
+    <Pressable
+      style={styles.listContainer}
+      onPress={() =>
+        navigation.navigate('ProductDetails', {productData: item})
+      }>
       <View style={styles.likeContainer}>
         <Pressable
           style={styles.like}
-          onPress={() => dispatch(addToFavourite(item))}>
+          onPress={() =>
+            item?.liked
+              ? dispatch(removeFromFavourite(item))
+              : dispatch(addToFavourite(item))
+          }>
           {item.liked ? (
             <HeartRed height={20} width={20} />
           ) : (
@@ -98,7 +113,7 @@ const Home = () => {
           <Add height={12} width={12} />
         </Pressable>
       </View>
-    </View>
+    </Pressable>
   );
 
   return (

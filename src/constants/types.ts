@@ -1,3 +1,5 @@
+import {RouteProp} from '@react-navigation/native';
+
 export type ProductItem = {
   brand: string;
   category: string;
@@ -33,4 +35,24 @@ export type ProductState = {
   bagCount: number;
   cartData: Array<ProductItem> | [];
   favourites: Array<ProductItem> | [];
+};
+
+type HomeStackParamList = {
+  ProductDetails: {productData: ProductItem};
+  // Add other screens if needed
+};
+
+type ProductDetailsScreenRouteProp = RouteProp<
+  HomeStackParamList,
+  'ProductDetails'
+>;
+
+export type ProductDetailsProps = {
+  route: ProductDetailsScreenRouteProp;
+};
+
+export type ActionBtnProps = {
+  type?: 'Primary' | 'Secondary';
+  btnLabel: string;
+  onPressBtn: () => void;
 };
