@@ -23,6 +23,8 @@ module.exports = {
           '@navigation': './src/navigation',
           '@store': './src/store',
           '@theme': './src/theme',
+          '@service': './src/service',
+          '@constants': './src/constants',
         },
       },
     ],

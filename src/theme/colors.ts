@@ -10,4 +10,7 @@ export const colors = {
   ChineseSilver: '#C5CDD2',
   BrightGray: '#E7ECF0',
   GhostWhite: '#F8F9FB',
+  White: '#FFFFFF',
+  CoolGray: '#8891A5',
+  Bone: '#E4DDCB',
 };

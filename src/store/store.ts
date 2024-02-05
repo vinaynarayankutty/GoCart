@@ -1,11 +1,16 @@
 import {configureStore} from '@reduxjs/toolkit';
+import {createLogger} from 'redux-logger';
+import productReducer from '@store/productSlice';
 
-import testReducer from '@store/testSlice';
-
+const logger = createLogger();
 export const store = configureStore({
   reducer: {
-    test: testReducer,
+    products: productReducer,
   },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(logger),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -9,7 +9,9 @@
       "@navigation/*": ["src/navigation/*"],
       "@store/*": ["src/store/*"],
       "@screens/*": ["src/screens/*"],
-      "@theme/*": ["src/theme/*"]
+      "@theme/*": ["src/theme/*"],
+      "@service/*": ["src/service/*"],
+      "@constants/*": ["src/constants/*"]
     }
   }
 }
