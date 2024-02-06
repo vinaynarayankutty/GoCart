@@ -44,6 +44,20 @@ const Favourites = () => {
     </Pressable>
   );
 
+  const renderEmptyList = () => (
+    <View style={styles.emptyFavouritesContainer}>
+      <Text style={styles.emptyFavourites}>No favourites added.</Text>
+    </View>
+  );
+
+  const renderFavouriteList = () => (
+    <FlatList
+      data={favouritesData}
+      keyExtractor={item => item.id.toString()}
+      renderItem={renderFavouritesData}
+    />
+  );
+
   return (
     <>
       <SafeAreaView edges={['top']} style={styles.topSafeContainer} />
@@ -54,11 +68,9 @@ const Favourites = () => {
             <Text style={styles.favourite}>Favourites</Text>
           </View>
 
-          <FlatList
-            data={favouritesData}
-            keyExtractor={item => item.id.toString()}
-            renderItem={renderFavouritesData}
-          />
+          {favouritesData.length > 0
+            ? renderFavouriteList()
+            : renderEmptyList()}
         </View>
       </SafeAreaView>
     </>
