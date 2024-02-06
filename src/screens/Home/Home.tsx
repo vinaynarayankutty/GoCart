@@ -1,4 +1,12 @@
-import {View, Text, Pressable, TextInput, FlatList, Image} from 'react-native';
+import {
+  View,
+  Text,
+  Pressable,
+  TextInput,
+  FlatList,
+  Image,
+  StatusBar,
+} from 'react-native';
 import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
@@ -120,6 +128,7 @@ const Home = () => {
     <>
       <SafeAreaView edges={['top']} style={styles.topSafeContainer} />
       <SafeAreaView style={styles.container} edges={['left', 'right']}>
+        <StatusBar backgroundColor={colors.CyanCobaltBlue} />
         <View style={styles.topContainer}>
           {renderHeader()}
           {renderTextInput()}

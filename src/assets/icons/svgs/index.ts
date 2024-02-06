@@ -7,6 +7,7 @@ import Favourite from './favourite.svg';
 import HeartBlack from './heartBlack.svg';
 import HeartRed from './heartRed.svg';
 import Homee from './home.svg';
+import HomeActive from './homeActive.svg';
 import ImageHolder from './imageHolder.svg';
 import Minus from './minus.svg';
 import Moree from './more.svg';
@@ -23,6 +24,7 @@ export {
   HeartBlack,
   HeartRed,
   Homee,
+  HomeActive,
   ImageHolder,
   Minus,
   Moree,

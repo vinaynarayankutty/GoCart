@@ -1,4 +1,4 @@
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, StatusBar} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StarRatingDisplay} from 'react-native-star-rating-widget';
@@ -147,7 +147,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({route}) => {
   return (
     <>
       <SafeAreaView edges={['top']} style={styles.topSafeContainer} />
-      <SafeAreaView style={styles.container} edges={['left', 'right']}>
+      <SafeAreaView
+        style={styles.container}
+        edges={['left', 'right', 'bottom']}>
+        <StatusBar backgroundColor={colors.White} />
         <View style={styles.topContainer}>
           {renderHeader()}
           {renderTitle()}

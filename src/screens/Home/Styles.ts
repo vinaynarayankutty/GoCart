@@ -36,8 +36,8 @@ const Styles = StyleSheet.create({
 
   bagCountContainer: {
     position: 'absolute',
-    top: -10,
-    right: -10,
+    top: -4,
+    right: -6,
     height: 25,
     width: 25,
     borderRadius: 25 / 2,
@@ -54,14 +54,17 @@ const Styles = StyleSheet.create({
 
   inputViewContainer: {
     flexDirection: 'row',
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
     backgroundColor: colors.CatalinaBlue,
     borderRadius: 50,
     alignItems: 'center',
+    height: 60,
   },
 
   inputContainer: {
     width: '100%',
+    height: 60,
     paddingHorizontal: 10,
     color: colors.GhostWhite,
     fontSize: 18,

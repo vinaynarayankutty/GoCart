@@ -7,6 +7,7 @@ import {
   Platform,
   UIManager,
   LayoutAnimation,
+  StatusBar,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -19,6 +20,7 @@ import {addToCart, deleteFromCart, subtractQty} from '@store/productSlice';
 import {useAppDispatch, useAppSelector} from '@store/hooks';
 import {priceSubtotal} from '@utils/sum';
 import {BackArrow, Delete} from '@assets/icons/svgs';
+import {colors} from '@theme/colors';
 import {ProductItem} from '@constants/types';
 import styles from './Styles';
 
@@ -159,7 +161,10 @@ const Cart = () => {
   return (
     <>
       <SafeAreaView edges={['top']} style={styles.topSafeContainer} />
-      <SafeAreaView style={styles.container} edges={['left', 'right']}>
+      <SafeAreaView
+        style={styles.container}
+        edges={['left', 'right', 'bottom']}>
+        <StatusBar backgroundColor={colors.White} />
         <View style={styles.topContainer}>{renderHeader()}</View>
         <View style={styles.midContainer}>
           {cartData.length > 0 ? renderCartList() : renderEmptyCart()}

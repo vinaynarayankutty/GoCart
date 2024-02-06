@@ -42,7 +42,7 @@ const Styles = StyleSheet.create({
 
   bagCountContainer: {
     position: 'absolute',
-    top: -6,
+    top: -4,
     right: -6,
     height: 25,
     width: 25,

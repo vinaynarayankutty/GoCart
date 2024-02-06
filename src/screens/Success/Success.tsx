@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, StatusBar} from 'react-native';
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import ActionButton from '@components/ActionButton';
 import {useAppDispatch} from '@store/hooks';
 import {clearCart} from '@store/productSlice';
+import {colors} from '@theme/colors';
 import styles from './Styles';
 
 const Success = () => {
@@ -16,6 +17,7 @@ const Success = () => {
     <>
       <SafeAreaView edges={['top']} style={styles.topSafeContainer} />
       <SafeAreaView style={styles.container} edges={['left', 'right']}>
+        <StatusBar backgroundColor={colors.White} />
         <View style={styles.mainContainer}>
           <Text style={styles.success}>Order Placed Successfully!</Text>
         </View>

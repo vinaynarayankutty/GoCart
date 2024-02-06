@@ -10,7 +10,8 @@ export const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }).concat(logger),
+    }),
+  // .concat(logger), // Uncommnet this line to add redux logging
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
