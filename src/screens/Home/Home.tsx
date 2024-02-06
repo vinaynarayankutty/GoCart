@@ -110,7 +110,7 @@ const Home = () => {
         <Pressable
           style={styles.addCart}
           onPress={() => dispatch(addToCart(item))}>
-          <Add height={12} width={12} />
+          <Add height={12} width={12} color={colors.White} />
         </Pressable>
       </View>
     </Pressable>

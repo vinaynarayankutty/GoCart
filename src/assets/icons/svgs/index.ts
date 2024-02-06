@@ -11,6 +11,7 @@ import ImageHolder from './imageHolder.svg';
 import Minus from './minus.svg';
 import Moree from './more.svg';
 import Search from './search.svg';
+import Delete from './delete.svg';
 
 export {
   Add,
@@ -26,4 +27,5 @@ export {
   Minus,
   Moree,
   Search,
+  Delete,
 };

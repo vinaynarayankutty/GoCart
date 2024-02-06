@@ -18,10 +18,11 @@ import {colors} from '@theme/colors';
 import styles from './Styles';
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({route}) => {
-  const dispatch = useAppDispatch();
   const {productData} = route.params;
-  const bagCount = useAppSelector(state => state.products.bagCount);
+  const dispatch = useAppDispatch();
   const navigation = useNavigation<any>();
+
+  const bagCount = useAppSelector(state => state.products.bagCount);
 
   const [liked, setLiked] = useState(false);
 
@@ -40,7 +41,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({route}) => {
 
       <Pressable
         style={styles.cartBtn}
-        onPress={() => console.warn('Go to cart')}>
+        onPress={() => navigation.navigate('Cart')}>
         <Bag width={25} height={25} color={colors.DarkGunmetal} />
       </Pressable>
 

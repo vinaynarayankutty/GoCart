@@ -7,14 +7,18 @@ import styles from './Styles';
 const ActionButton = ({
   type = 'Primary',
   btnLabel,
+  btnContainerStyle,
+  disabled = false,
   onPressBtn,
 }: ActionBtnProps) => {
   return (
     <Pressable
+      disabled={disabled}
       onPress={onPressBtn}
       style={({pressed}) => [
         styles.btnContainer,
         type === 'Secondary' && styles.secondaryBtnContainer,
+        btnContainerStyle,
         {opacity: pressed ? 0.5 : 1},
       ]}>
       <Text

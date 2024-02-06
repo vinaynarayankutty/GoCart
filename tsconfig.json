@@ -11,7 +11,8 @@
       "@screens/*": ["src/screens/*"],
       "@theme/*": ["src/theme/*"],
       "@service/*": ["src/service/*"],
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@utils/*": ["src/utils/*"]
     }
   }
 }

@@ -13,4 +13,5 @@ export const colors = {
   White: '#FFFFFF',
   CoolGray: '#8891A5',
   Bone: '#E4DDCB',
+  CarminePink: '#EA4C45',
 };

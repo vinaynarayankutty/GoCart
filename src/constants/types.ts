@@ -1,4 +1,5 @@
 import {RouteProp} from '@react-navigation/native';
+import {TextStyle, ViewStyle} from 'react-native';
 
 export type ProductItem = {
   brand: string;
@@ -54,5 +55,18 @@ export type ProductDetailsProps = {
 export type ActionBtnProps = {
   type?: 'Primary' | 'Secondary';
   btnLabel: string;
+  btnContainerStyle?: ViewStyle | Array<ViewStyle>;
+  disabled?: boolean;
   onPressBtn: () => void;
+};
+
+export type StepperBtnProps = {
+  type: 'minus' | 'plus';
+  onPressBtn: () => void;
+};
+
+export type PriceBreakupProps = {
+  title: string;
+  value: number;
+  textStyle?: TextStyle;
 };

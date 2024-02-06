@@ -67,6 +67,35 @@ export const productSlice = createSlice({
         state.cartData[existingItemIndex].quantity += 1;
       }
     },
+    deleteFromCart: (state: any, action: PayloadAction<any>) => {
+      const existingItemIndex = state.cartData.findIndex(
+        (item: ProductItem) => item?.id === action.payload?.id,
+      );
+
+      if (existingItemIndex !== -1) {
+        const deletedItem = state.cartData[existingItemIndex];
+        // Remove the item from the cart
+        state.cartData.splice(existingItemIndex, 1);
+        state.bagCount -= deletedItem.quantity;
+      }
+    },
+    subtractQty: (state: any, action: PayloadAction<any>) => {
+      const existingItemIndex = state.cartData.findIndex(
+        (item: ProductItem) => item?.id === action.payload?.id,
+      );
+      // Check if the item exists and the quantity is greater than 1
+      if (
+        existingItemIndex !== -1 &&
+        state.cartData[existingItemIndex].quantity > 1
+      ) {
+        // Decrease the quantity
+        state.cartData[existingItemIndex].quantity -= 1;
+      }
+    },
+    clearCart: state => {
+      state.cartData = [];
+      state.bagCount = 0;
+    },
   },
   extraReducers: builder => {
     builder
@@ -88,7 +117,13 @@ export const productSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {addToFavourite, addToCart, removeFromFavourite} =
-  productSlice.actions;
+export const {
+  addToFavourite,
+  addToCart,
+  removeFromFavourite,
+  deleteFromCart,
+  subtractQty,
+  clearCart,
+} = productSlice.actions;
 
 export default productSlice.reducer;
