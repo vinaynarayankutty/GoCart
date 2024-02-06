@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {Categories, Favourites, Home, More} from '@screens/index';
@@ -13,35 +13,45 @@ import {
 } from '@assets/icons/svgs';
 import {fonts} from '@theme/fonts';
 import {colors} from '@theme/colors';
+import AnimatedTabBar from '@components/AnimatedTabBar';
 
 const Tab = createBottomTabNavigator();
 
 export default function HomeTabs() {
   return (
-    <Tab.Navigator screenOptions={{headerShown: false}}>
+    <Tab.Navigator
+      screenOptions={{headerShown: false}}
+      tabBar={props => <AnimatedTabBar {...props} />}>
       <Tab.Group>
         <Tab.Screen
           name="Homescreen"
           component={Home}
           options={{
-            tabBarLabel: ({focused}) =>
-              !focused && <Text style={styles.tabLabel}>Home</Text>,
-            tabBarIcon: ({focused}) =>
-              focused ? <HomeActive width={25} height={25} /> : <Homee />,
+            tabBarLabel: ({textRef}: any) => (
+              <Text ref={textRef} style={styles.tabLabel}>
+                Home
+              </Text>
+            ),
+            tabBarIcon: ({ref}: any) => (
+              <View ref={ref}>
+                <HomeActive width={25} height={25} />
+              </View>
+            ),
           }}
         />
         <Tab.Screen
           name="Categories"
           component={Categories}
           options={{
-            tabBarLabel: ({focused}) =>
-              !focused && <Text style={styles.tabLabel}>Categories</Text>,
-            tabBarIcon: ({focused}) => (
-              <Category
-                color={focused ? colors.BrightYellow : colors.White}
-                width={25}
-                height={25}
-              />
+            tabBarLabel: ({textRef}: any) => (
+              <Text ref={textRef} style={styles.tabLabel}>
+                Categories
+              </Text>
+            ),
+            tabBarIcon: ({ref}: any) => (
+              <View ref={ref}>
+                <Category color={colors.BrightYellow} width={25} height={25} />
+              </View>
             ),
           }}
         />
@@ -49,14 +59,15 @@ export default function HomeTabs() {
           name="Favourites"
           component={Favourites}
           options={{
-            tabBarLabel: ({focused}) =>
-              !focused && <Text style={styles.tabLabel}>Favourites</Text>,
-            tabBarIcon: ({focused}) => (
-              <Favourite
-                color={focused ? colors.BrightYellow : colors.White}
-                width={25}
-                height={25}
-              />
+            tabBarLabel: ({textRef}: any) => (
+              <Text ref={textRef} style={styles.tabLabel}>
+                Favourites
+              </Text>
+            ),
+            tabBarIcon: ({ref}: any) => (
+              <View ref={ref}>
+                <Favourite color={colors.BrightYellow} width={25} height={25} />
+              </View>
             ),
           }}
         />
@@ -64,14 +75,15 @@ export default function HomeTabs() {
           name="More"
           component={More}
           options={{
-            tabBarLabel: ({focused}) =>
-              !focused && <Text style={styles.tabLabel}>More</Text>,
-            tabBarIcon: ({focused}) => (
-              <Moree
-                color={focused ? colors.BrightYellow : '#3E4554'}
-                width={25}
-                height={25}
-              />
+            tabBarLabel: ({textRef}: any) => (
+              <Text ref={textRef} style={styles.tabLabel}>
+                More
+              </Text>
+            ),
+            tabBarIcon: ({ref}: any) => (
+              <View ref={ref}>
+                <Moree color={colors.BrightYellow} width={25} height={25} />
+              </View>
             ),
           }}
         />
@@ -82,7 +94,7 @@ export default function HomeTabs() {
 
 const styles = StyleSheet.create({
   tabLabel: {
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: fonts.ManropeMedium,
     color: colors.CoolGray,
   },

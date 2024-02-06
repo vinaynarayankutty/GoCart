@@ -1,5 +1,6 @@
+import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 import {RouteProp} from '@react-navigation/native';
-import {TextStyle, ViewStyle} from 'react-native';
+import {LayoutChangeEvent, TextStyle, ViewStyle} from 'react-native';
 
 export type ProductItem = {
   brand: string;
@@ -69,4 +70,11 @@ export type PriceBreakupProps = {
   title: string;
   value: number;
   textStyle?: TextStyle;
+};
+
+export type TabBarComponentProps = {
+  active?: boolean;
+  options: BottomTabNavigationOptions;
+  onLayout: (e: LayoutChangeEvent) => void;
+  onPress: () => void;
 };
