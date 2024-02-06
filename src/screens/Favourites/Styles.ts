@@ -88,6 +88,18 @@ const Styles = StyleSheet.create({
     fontFamily: fonts.ManropeSemiBold,
     color: colors.DarkGunmetal,
   },
+
+  emptyFavouritesContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  emptyFavourites: {
+    fontSize: 20,
+    fontFamily: fonts.ManropeBold,
+    color: colors.DarkGunmetal,
+  },
 });
 
 export default Styles;

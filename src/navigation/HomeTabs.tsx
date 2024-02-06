@@ -21,7 +21,7 @@ export default function HomeTabs() {
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Group>
         <Tab.Screen
-          name="Home"
+          name="Homescreen"
           component={Home}
           options={{
             tabBarLabel: ({focused}) =>

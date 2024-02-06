@@ -6,6 +6,7 @@ import {
   FlatList,
   Image,
   StatusBar,
+  ActivityIndicator,
 } from 'react-native';
 import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -124,6 +125,11 @@ const Home = () => {
     </Pressable>
   );
 
+  const renderActivityIndicator = () => (
+    <View style={styles.emptyContainer}>
+      <ActivityIndicator size={'large'} />
+    </View>
+  );
   return (
     <>
       <SafeAreaView edges={['top']} style={styles.topSafeContainer} />
@@ -145,6 +151,7 @@ const Home = () => {
             renderItem={renderListItem}
             keyExtractor={item => item?.id.toString()}
             removeClippedSubviews={true}
+            ListEmptyComponent={renderActivityIndicator}
           />
         </View>
       </SafeAreaView>

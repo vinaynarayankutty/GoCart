@@ -144,6 +144,12 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.CyanCobaltBlue,
   },
+
+  emptyContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 50,
+  },
 });
 
 export default Styles;
